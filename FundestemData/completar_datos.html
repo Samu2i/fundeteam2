@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Completar Datos - Asistencia Fundesteam</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        .login-container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 450px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+        .logo {
+            font-size: 32px;
+            font-weight: bold;
+            color: #595A5C;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+        .subtitle {
+            color: #0095D3;
+            margin-bottom: 10px;
+            font-size: 16px;
+            font-weight: 500;
+        }
+        .description {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #595A5C;
+            font-weight: 500;
+            font-size: 14px;
+        }
+        .input-group input, .input-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 15px;
+            transition: border-color 0.3s;
+            font-family: inherit;
+        }
+        /* Color especial para el icono del calendario al pasar el mouse */
+        .input-group input[type="date"]::-webkit-calendar-picker-indicator {
+            cursor: pointer;
+            opacity: 0.6;
+            transition: 0.2s;
+        }
+        .input-group input[type="date"]::-webkit-calendar-picker-indicator:hover {
+            opacity: 1;
+        }
+        .input-group input:focus, .input-group select:focus {
+            border-color: #0095D3;
+            outline: none;
+        }
+        .btn-login {
+            background-color: #0095D3;
+            color: white;
+            border: none;
+            padding: 14px;
+            width: 100%;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+        .btn-login:hover {
+            background-color: #007BB0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <!-- Título -->
+        <div class="logo">FUNDESTEAM</div>
+        <div class="subtitle">Ya casi terminamos</div>
+        <div class="description">Por favor, completa tus datos personales para finalizar el registro.</div>
+        
+        <!-- Formulario de Datos Adicionales -->
+        <form id="datosForm">
+            <div class="input-group">
+                <label for="documento">Cédula o Documento de Identidad</label>
+                <input type="text" id="documento" name="documento" placeholder="Ej: 8-000-0000" required>
+            </div>
+
+            <div class="input-group">
+                <label for="telefono">Número de Teléfono</label>
+                <input type="tel" id="telefono" name="telefono" placeholder="Ej: 6000-0000" required>
+            </div>
+
+            <!-- NUEVO CAMPO: Fecha de Nacimiento -->
+            <div class="input-group">
+                <label for="fecha_nacimiento">Fecha de Nacimiento</label>
+                <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required>
+            </div>
+            
+            <div class="input-group">
+                <label for="rol">¿Cuál es tu rol en Fundesteam?</label>
+                <select id="rol" name="rol" required>
+                    <option value="" disabled selected>Selecciona una opción</option>
+                    <option value="estudiante">Estudiante</option>
+                    <option value="profesor">Profesor / Instructor</option>
+                    <option value="voluntario">Voluntario</option>
+                    <option value="administrativo">Administrativo</option>
+                </select>
+            </div>
+            
+            <button type="submit" class="btn-login">Guardar Datos y Finalizar</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('datosForm').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            
+            alert("¡Tus datos se han guardado correctamente! Registro finalizado.");
+            
+            window.location.href = "inicio.html"; 
+        });
+    </script>
+</body>
+</html>
