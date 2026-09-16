@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - Asistencia Fundesteam</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px; /* Un poco de padding por si se ve en celulares */
+        }
+        .login-container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 450px; /* Un poco más ancho porque hay más campos */
+            text-align: center;
+            box-sizing: border-box;
+        }
+        .logo {
+            font-size: 32px;
+            font-weight: bold;
+            color: #595A5C; /* Gris de Fundesteam */
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+        .subtitle {
+            color: #0095D3; /* Azul de Fundesteam */
+            margin-bottom: 30px;
+            font-size: 16px;
+            font-weight: 500;
+        }
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #595A5C;
+            font-weight: 500;
+            font-size: 14px;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 15px;
+            transition: border-color 0.3s;
+        }
+        .input-group input:focus {
+            border-color: #0095D3; /* Borde azul al escribir */
+            outline: none;
+        }
+        .btn-login {
+            background-color: #0095D3; /* Azul de Fundesteam */
+            color: white;
+            border: none;
+            padding: 14px;
+            width: 100%;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+        .btn-login:hover {
+            background-color: #007BB0; /* Azul más oscuro */
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: #595A5C;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+        .back-link:hover {
+            color: #0095D3;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <!-- Título -->
+        <div class="logo">FUNDESTEAM</div>
+        <div class="subtitle">Crear una cuenta nueva</div>
+        
+        <!-- Formulario de Registro -->
+        <form id="registroForm">
+            <div class="input-group">
+                <label for="nombre">Nombre Completo</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Ej: Juan Pérez" required>
+            </div>
+
+            <div class="input-group">
+                <label for="correo">Correo Electrónico</label>
+                <input type="email" id="correo" name="correo" placeholder="correo@ejemplo.com" required>
+            </div>
+            
+            <div class="input-group">
+                <label for="password">Contraseña</label>
+                <input type="password" id="password" name="password" placeholder="Crea una contraseña" required>
+            </div>
+
+            <div class="input-group">
+                <label for="confirm-password">Confirmar Contraseña</label>
+                <input type="password" id="confirm-password" name="confirm-password" placeholder="Repite tu contraseña" required>
+            </div>
+            
+            <button type="submit" class="btn-login">Registrarse</button>
+        </form>
+
+        <!-- Botón para regresar al inicio -->
+        <a href="index.html" class="back-link">¿Ya tienes una cuenta? Inicia sesión aquí</a>
+    </div>
+
+    <script>
+        document.getElementById('registroForm').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            
+            const p1 = document.getElementById('password').value;
+            const p2 = document.getElementById('confirm-password').value;
+
+            // Verificamos que las contraseñas coincidan
+            if(p1 !== p2) {
+                alert("Las contraseñas no coinciden. Por favor, inténtalo de nuevo.");
+                return;
+            }
+            
+            alert("¡Cuenta creada exitosamente! Ahora puedes iniciar sesión.");
+            
+            // Redirigimos al usuario de vuelta a la pantalla de inicio de sesión
+            window.location.href = "index.html"; 
+        });
+    </script>
+</body>
+</html>
