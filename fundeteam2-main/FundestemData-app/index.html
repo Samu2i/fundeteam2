@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio - Asistencia Fundesteam</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        .login-container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+        .logo {
+            font-size: 32px;
+            font-weight: bold;
+            color: #595A5C; /* Gris de Fundesteam */
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #595A5C; /* Gris de Fundesteam */
+            font-weight: 500;
+            font-size: 14px;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        .input-group input:focus {
+            border-color: #0095D3; /* Azul de Fundesteam */
+            outline: none;
+        }
+        .btn-login {
+            background-color: #0095D3; /* Azul de Fundesteam */
+            color: white;
+            border: none;
+            padding: 14px;
+            width: 100%;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .btn-login:hover {
+            background-color: #007BB0; /* Azul oscuro al pasar el mouse */
+        }
+        
+        /* --- Estilos para la sección de registro --- */
+        .registro-seccion {
+            margin-top: 20px;
+            border-top: 1px solid #e0e0e0;
+            padding-top: 15px;
+        }
+        .registro-seccion p {
+            color: #595A5C; /* Gris de Fundesteam */
+            font-size: 14px;
+            margin-bottom: 10px;
+            margin-top: 0;
+        }
+        .btn-registro {
+            background-color: transparent; 
+            color: #0095D3; /* Azul de Fundesteam */
+            border: 2px solid #0095D3;
+            padding: 12px;
+            width: 100%;
+            border-radius: 5px;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: bold;
+        }
+        .btn-registro:hover {
+            background-color: #0095D3;
+            color: white;
+        }
+        
+        .footer-text {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <!-- Título principal -->
+        <div class="logo">FUNDESTEAM</div>
+        <div class="subtitle">Sistema de Control de Asistencia</div>
+        
+        <!-- Formulario de inicio de sesión -->
+        <form id="loginForm">
+            <div class="input-group">
+                <label for="usuario">Usuario o Correo Electrónico</label>
+                <input type="text" id="usuario" name="usuario" placeholder="Ingresa tu usuario" required>
+            </div>
+            
+            <div class="input-group">
+                <label for="password">Contraseña</label>
+                <input type="password" id="password" name="password" placeholder="Ingresa tu contraseña" required>
+            </div>
+            
+            <button type="submit" class="btn-login">Ingresar al Sistema</button>
+        </form>
+
+        <!-- Sección para crear cuenta -->
+        <div class="registro-seccion">
+            <p>¿No tienes una cuenta?</p>
+            <button type="button" class="btn-registro" onclick="window.location.href='registro.html'">
+                Regístrate aquí
+            </button>
+        </div>
+
+        <div class="footer-text">
+            © 2026 Fundesteam. Todos los derechos reservados.
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            
+            const usuario = document.getElementById('usuario').value;
+            
+            alert("Validando credenciales para: " + usuario + "...\n¡Bienvenido al sistema de Fundesteam!");
+            
+            // Aquí irá la redirección a la pantalla de asistencia en el futuro
+            window.location.href = "principal.html"; 
+        });
+    </script>
+</body>
+</html>
