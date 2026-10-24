@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Estudiante - Fundesteam</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            height: 100%;
+            background-color: #f4f6f9;
+        }
+        .app-container {
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+        /* Sidebar */
+        .sidebar {
+            width: 250px;
+            background-color: #2b2b2c;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            flex-shrink: 0;
+        }
+        .sidebar-header {
+            background-color: #0095D3;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            font-size: 18px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        .sidebar-header .icon {
+            margin-right: 10px;
+            font-size: 20px;
+        }
+        .sidebar-menu {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+        .sidebar-menu li {
+            margin-bottom: 5px;
+        }
+        .sidebar-menu a {
+            display: flex;
+            align-items: center;
+            padding: 12px 20px;
+            color: #b0b0b0;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+        .sidebar-menu a:hover, .sidebar-menu li.active a {
+            background-color: #4a4a4c;
+            color: #ffffff;
+            border-left: 4px solid #0095D3;
+        }
+        .sidebar-menu .icon {
+            margin-right: 15px;
+            font-size: 16px;
+            width: 20px;
+            text-align: center;
+        }
+        /* Main & Topbar */
+        .main-wrapper {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .topbar {
+            height: 60px;
+            background-color: #1a1a1b;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            color: #ffffff;
+        }
+        .topbar-left {
+            display: flex;
+            align-items: center;
+        }
+        .page-title {
+            color: #0095D3;
+            font-size: 14px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .topbar-right {
+            font-size: 12px;
+            color: #b0b0b0;
+            letter-spacing: 0.5px;
+        }
+        .topbar-right span {
+            color: #ffffff;
+            font-weight: bold;
+        }
+        .btn-salir {
+            background: transparent;
+            border: 1px solid #0095D3;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: 15px;
+            font-size: 11px;
+        }
+        .btn-salir:hover {
+            background-color: #0095D3;
+        }
+        /* Content */
+        .content-area {
+            padding: 25px;
+            flex-grow: 1;
+            overflow-y: auto;
+        }
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border-top: 4px solid #0095D3;
+        }
+        .card h3 {
+            margin-top: 0;
+            color: #2b2b2c;
+            font-size: 18px;
+        }
+        .card p {
+            color: #666;
+            font-size: 14px;
+            margin: 8px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app-container">
+        <!-- Sidebar exclusivo para Estudiante -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <span class="icon">🎓</span> FUNDESTEAM
+            </div>
+            <ul class="sidebar-menu">
+                <li class="active"><a href="#"><span class="icon">📚</span> Mis Cursos</a></li>
+                <li><a href="#"><span class="icon">📋</span> Mi Asistencia</a></li>
+                <li><a href="#"><span class="icon">⚙️</span> Mi Perfil</a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Wrapper -->
+        <div class="main-wrapper">
+            <header class="topbar">
+                <div class="topbar-left">
+                    <span class="page-title">Mis Cursos Asignados y Horarios</span>
+                </div>
+                <div class="topbar-right">
+                    ESTUDIANTE: <span>SAMUEL GARCÍA</span>
+                    <button class="btn-salir" onclick="window.location.href='index.html'">Cerrar Sesión</button>
+                </div>
+            </header>
+
+            <main class="content-area">
+                <h3>Cursos en los que estás matriculado</h3>
+                <div class="card-grid">
+                    <div class="card">
+                        <h3>Robótica Educativa con Arduino</h3>
+                        <p><b>Profesor:</b> Prof. Rangel</p>
+                        <p><b>Horario:</b> Lunes y Miércoles 3:00 PM - 5:00 PM</p>
+                        <p><b>Aula:</b> Laboratorio 2</p>
+                    </div>
+                    <div class="card">
+                        <h3>Fundamentos de Python</h3>
+                        <p><b>Profesor:</b> Prof. Mendoza</p>
+                        <p><b>Horario:</b> Martes y Jueves 1:00 PM - 3:00 PM</p>
+                        <p><b>Aula:</b> Virtual / Aula 4</p>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+</body>
+</html>

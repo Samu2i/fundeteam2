@@ -1,0 +1,259 @@
+Entendido. Para que tengas todo listo y funcional sin depender de partes fragmentadas, aquí tienes el código completo y unificado de tu archivo **`principal_administradore.html`**, con su diseño original, el menú lateral, la barra superior y el panel de control administrativo que acabamos de armar:
+
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Administrador - Asistencia Fundesteam</title>
+    <style>
+        /* Reseteo básico */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            height: 100%;
+            background-color: #f4f6f9;
+        }
+
+        /* Contenedor principal para dividir sidebar y contenido */
+        .app-container {
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* --- BARRA LATERAL (SIDEBAR) --- */
+        .sidebar {
+            width: 250px;
+            background-color: #2b2b2c;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            flex-shrink: 0;
+        }
+
+        .sidebar-header {
+            background-color: #0095D3;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            font-size: 18px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .sidebar-header .icon {
+            margin-right: 10px;
+            font-size: 20px;
+        }
+
+        .sidebar-menu {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .sidebar-menu li {
+            margin-bottom: 5px;
+        }
+
+        .sidebar-menu a {
+            display: flex;
+            align-items: center;
+            padding: 12px 20px;
+            color: #b0b0b0;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+
+        .sidebar-menu a:hover {
+            background-color: #3d3d3f;
+            color: #ffffff;
+        }
+
+        .sidebar-menu li.active a {
+            background-color: #4a4a4c;
+            color: #ffffff;
+            border-left: 4px solid #0095D3;
+        }
+
+        .sidebar-menu .icon {
+            margin-right: 15px;
+            font-size: 16px;
+            width: 20px;
+            text-align: center;
+        }
+
+        /* --- ÁREA PRINCIPAL --- */
+        .main-wrapper {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* --- BARRA SUPERIOR (TOPBAR) --- */
+        .topbar {
+            height: 60px;
+            background-color: #1a1a1b;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            color: #ffffff;
+        }
+
+        .topbar-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .menu-toggle {
+            background: none;
+            border: none;
+            color: #ffffff;
+            font-size: 20px;
+            cursor: pointer;
+            margin-right: 15px;
+        }
+
+        .page-title {
+            color: #0095D3;
+            font-size: 14px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .topbar-right {
+            font-size: 12px;
+            color: #b0b0b0;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .topbar-right span {
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        .btn-salir {
+            background: transparent;
+            border: 1px solid #0095D3;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 11px;
+        }
+
+        .btn-salir:hover {
+            background-color: #0095D3;
+        }
+
+        /* --- ÁREA DE CONTENIDO --- */
+        .content-area {
+            padding: 25px;
+            flex-grow: 1;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app-container">
+        
+        <!-- BARRA LATERAL (SIDEBAR) -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <span class="icon">⚙️</span> FUNDESTEAM
+            </div>
+            <ul class="sidebar-menu">
+                <li><a href="#"><span class="icon">🏠</span> Inicio</a></li>
+                <li><a href="#"><span class="icon">👥</span> Usuarios</a></li>
+                <li class="active"><a href="#"><span class="icon">📋</span> Asistencia</a></li>
+                <li><a href="#"><span class="icon">🔄</span> Movimientos</a></li>
+                <li><a href="#"><span class="icon">📊</span> Consultas</a></li>
+            </ul>
+        </aside>
+
+        <!-- ÁREA PRINCIPAL -->
+        <div class="main-wrapper">
+            
+            <!-- BARRA SUPERIOR (TOPBAR) -->
+            <header class="topbar">
+                <div class="topbar-left">
+                    <button class="menu-toggle">☰</button>
+                    <span class="page-title">Panel Administrativo</span>
+                </div>
+                <div class="topbar-right">
+                    BIENVENIDO <span>SAMUEL</span>
+                    <button class="btn-salir" onclick="window.location.href='index.html'">Cerrar Sesión</button>
+                </div>
+            </header>
+
+            <!-- ÁREA DE CONTENIDO -->
+            <main class="content-area">
+                <h3 style="color: #2b2b2c; margin-top: 0;">Resumen General de la Fundación Fundesteam</h3>
+                
+                <!-- Tarjetas de Estadísticas Rápidas -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-bottom: 25px;">
+                    <div style="background: white; padding: 20px; border-radius: 8px; border-left: 4px solid #0095D3; box-shadow: 0 2px 6px rgba(0,0,0,0.05);">
+                        <p style="margin: 0; color: #666; font-size: 13px;">Total Estudiantes</p>
+                        <h2 style="margin: 5px 0 0 0; color: #2b2b2c;">150+</h2>
+                    </div>
+                    <div style="background: white; padding: 20px; border-radius: 8px; border-left: 4px solid #0095D3; box-shadow: 0 2px 6px rgba(0,0,0,0.05);">
+                        <p style="margin: 0; color: #666; font-size: 13px;">Cursos Activos</p>
+                        <h2 style="margin: 5px 0 0 0; color: #2b2b2c;">12</h2>
+                    </div>
+                    <div style="background: white; padding: 20px; border-radius: 8px; border-left: 4px solid #0095D3; box-shadow: 0 2px 6px rgba(0,0,0,0.05);">
+                        <p style="margin: 0; color: #666; font-size: 13px;">Instructores</p>
+                        <h2 style="margin: 5px 0 0 0; color: #2b2b2c;">8</h2>
+                    </div>
+                </div>
+
+                <!-- Tabla de Control de Asistencia Global -->
+                <div style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.05);">
+                    <h4 style="margin-top: 0; color: #595A5C;">Registro Reciente de Asistencia</h4>
+                    <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
+                        <thead>
+                            <tr style="background-color: #f4f6f9; text-align: left; color: #595A5C;">
+                                <th style="padding: 10px; border-bottom: 2px solid #ddd;">Curso</th>
+                                <th style="padding: 10px; border-bottom: 2px solid #ddd;">Instructor</th>
+                                <th style="padding: 10px; border-bottom: 2px solid #ddd;">Fecha / Hora</th>
+                                <th style="padding: 10px; border-bottom: 2px solid #ddd;">Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="padding: 10px; border-bottom: 1px solid #eee;">Robótica Educativa</td>
+                                <td style="padding: 10px; border-bottom: 1px solid #eee;">Prof. Rangel</td>
+                                <td style="padding: 10px; border-bottom: 1px solid #eee;">Hoy, 3:00 PM</td>
+                                <td style="padding: 10px; border-bottom: 1px solid #eee;"><span style="color: green; font-weight: bold;">Completado</span></td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 10px; border-bottom: 1px solid #eee;">Fundamentos de Python</td>
+                                <td style="padding: 10px; border-bottom: 1px solid #eee;">Prof. Mendoza</td>
+                                <td style="padding: 10px; border-bottom: 1px solid #eee;">Ayer, 1:00 PM</td>
+                                <td style="padding: 10px; border-bottom: 1px solid #eee;"><span style="color: green; font-weight: bold;">Completado</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </main>
+
+        </div>
+    </div>
+
+</body>
+</html>
+
+```
+
+Puedes copiar este contenido directamente y pegarlo dentro de tu archivo `principal_administradore.html`. ¿Necesitas que revisemos algún otro aspecto del proyecto para dejarlo listo?

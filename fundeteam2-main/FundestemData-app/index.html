@@ -150,6 +150,14 @@
     </div>
 
     <script>
+        // Ejemplo de redirección según el rol en tu script de login:
+if (rol === 'estudiante') {
+    window.location.href = "dashboard_estudiante.html";
+} else if (rol === 'profesor') {
+    window.location.href = "dashboard_docente.html";
+} else if (rol === 'administrativo') {
+    window.location.href = "principal_administradore.html";
+}
         document.getElementById('loginForm').addEventListener('submit', function(event) {
             event.preventDefault(); 
             
